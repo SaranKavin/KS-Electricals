@@ -4,8 +4,8 @@
 A professional website for KS Electricals company providing electrical services.
 
 ## Live Website
-🌐 Live Site: ks-electricals.web.app
-https://ks-electricals.web.app/assest/Home_Screen.png
+[![Home Screen](assets/Home_Screen.png)](https://ks-electricals.web.app/)
+
 
 ## Features
 - Clean, professional design
