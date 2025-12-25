@@ -61,26 +61,6 @@
             opacity: 0.9;
         }
 
-        /* Breadcrumb */
-        .breadcrumb-section {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 15px 0;
-        }
-
-        .breadcrumb {
-            background: transparent;
-            margin-bottom: 0;
-        }
-
-        .breadcrumb-item a {
-            color: #ff9800;
-            text-decoration: none;
-        }
-
-        .breadcrumb-item.active {
-            color: white;
-        }
-
         /* Main Content */
         .about-content {
             padding: 10px 0;
@@ -158,9 +138,40 @@
             transform: scale(1.03);
         }
 
+        /* Stats in overview */
+        .overview-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .overview-stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ff9800;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+
+        .stat-number::after {
+            content: '+';
+            color: #ff9800;
+        }
+
+        .stat-label {
+            color: #1a3a5f;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
         /* Mission & Vision */
         .mission-vision-section {
-            margin-bottom: 10px;
+            margin-bottom: 80px;
         }
 
         .mv-cards {
@@ -209,12 +220,12 @@
             color: #666;
         }
 
-        /* Experience & Expertise */
+        /* Experience & Expertise Section */
         .expertise-section {
-            margin-bottom: 10px;
+            margin-bottom: 80px;
         }
 
-        .stats-row {
+        .expertise-stats {
             display: flex;
             flex-wrap: wrap;
             gap: 30px;
@@ -222,7 +233,7 @@
             margin-bottom: 50px;
         }
 
-        .stat-card {
+        .expertise-stat-card {
             flex: 1;
             min-width: 200px;
             text-align: center;
@@ -230,16 +241,27 @@
             background: white;
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
         }
 
-        .stat-number {
+        .expertise-stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .expertise-stat-number {
             font-size: 3rem;
             font-weight: 700;
             color: #ff9800;
             margin-bottom: 10px;
+            display: inline-block;
         }
 
-        .stat-label {
+        .expertise-stat-number::after {
+            content: '+';
+            color: #ff9800;
+        }
+
+        .expertise-stat-label {
             color: #1a3a5f;
             font-weight: 600;
             font-size: 1.1rem;
@@ -315,61 +337,6 @@
 
         .area-card h4 {
             color: #1a3a5f;
-            margin-bottom: 15px;
-        }
-
-        /* Team Section */
-        .team-section {
-            margin-bottom: 80px;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .team-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease;
-        }
-
-        .team-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .team-img {
-            height: 250px;
-            overflow: hidden;
-        }
-
-        .team-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .team-card:hover .team-img img {
-            transform: scale(1.05);
-        }
-
-        .team-info {
-            padding: 25px;
-            text-align: center;
-        }
-
-        .team-info h4 {
-            color: #1a3a5f;
-            margin-bottom: 5px;
-        }
-
-        .team-info p {
-            color: #ff9800;
-            font-weight: 600;
             margin-bottom: 15px;
         }
 
@@ -464,11 +431,11 @@
                 min-width: 100%;
             }
 
-            .stats-row {
+            .expertise-stats {
                 gap: 20px;
             }
 
-            .stat-card {
+            .expertise-stat-card {
                 min-width: 150px;
             }
         }
@@ -504,6 +471,15 @@
                 width: 100%;
                 max-width: 300px;
             }
+
+            .overview-stats {
+                gap: 20px;
+            }
+
+            .overview-stat {
+                flex: 1;
+                min-width: 120px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -515,11 +491,11 @@
                 font-size: 1.8rem;
             }
 
-            .stat-number {
+            .stat-number,
+            .expertise-stat-number {
                 font-size: 2.5rem;
             }
 
-            .team-grid,
             .areas-grid {
                 grid-template-columns: 1fr;
             }
@@ -542,11 +518,6 @@
     <!-- Company Overview -->
     <section class="overview-section about-content">
         <div class="container">
-            <!-- <div class="section-title">
-                <h2>Company Overview</h2>
-                <p>Learn about our journey, values, and commitment to excellence</p>
-            </div> -->
-
             <div class="overview-content">
                 <div class="overview-text">
                     <h3 class="mb-4" style="color: #1a3a5f;">Building Trust Since 2005</h3>
@@ -560,13 +531,13 @@
                     <p class="mb-4">Today, we're proud to be a licensed, insured, and trusted partner for hundreds of
                         satisfied customers. Our team of skilled professionals brings years of experience and continuous
                         training to every project, ensuring the highest standards of safety and quality.</p>
-                    <div class="d-flex align-items-center mt-4">
-                        <div class="me-4">
-                            <div class="stat-number">18+</div>
+                    <div class="overview-stats">
+                        <div class="overview-stat">
+                            <div class="stat-number" data-target="18">0</div>
                             <div class="stat-label">Years Experience</div>
                         </div>
-                        <div>
-                            <div class="stat-number">500+</div>
+                        <div class="overview-stat">
+                            <div class="stat-number" data-target="500">0</div>
                             <div class="stat-label">Projects Completed</div>
                         </div>
                     </div>
@@ -621,7 +592,77 @@
     </section>
 
     <!-- Experience & Expertise -->
+    <section class="expertise-section about-content">
+        <div class="container">
+            <div class="section-title">
+                <h2>Experience & Expertise</h2>
+                <p>Our track record of excellence and specialized skills</p>
+            </div>
 
+            <div class="expertise-stats">
+                <div class="expertise-stat-card">
+                    <div class="expertise-stat-number" data-target="100">0</div>
+                    <div class="expertise-stat-label">Happy Clients</div>
+                </div>
+                <div class="expertise-stat-card">
+                    <div class="expertise-stat-number" data-target="18">0</div>
+                    <div class="expertise-stat-label">Years Experience</div>
+                </div>
+                <div class="expertise-stat-card">
+                    <div class="expertise-stat-number" data-target="500">0</div>
+                    <div class="expertise-stat-label">Projects Completed</div>
+                </div>
+                <div class="expertise-stat-card">
+                    <div class="expertise-stat-number" data-target="24">0</div>
+                    <div class="expertise-stat-label">Hour Service</div>
+                </div>
+            </div>
+
+            <div class="expertise-content">
+                <h3 class="mb-4" style="color: #1a3a5f;">Our Specialized Expertise</h3>
+                <p>Our team of certified electricians and plumbers brings specialized knowledge across various domains:</p>
+                
+                <div class="expertise-list">
+                    <div class="expertise-item">
+                        <div class="expertise-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div>
+                            <h5 style="color: #1a3a5f;">Electrical System Design</h5>
+                            <p class="mb-0">Custom electrical solutions for residential and commercial spaces</p>
+                        </div>
+                    </div>
+                    <div class="expertise-item">
+                        <div class="expertise-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <div>
+                            <h5 style="color: #1a3a5f;">Plumbing Solutions</h5>
+                            <p class="mb-0">Complete plumbing systems installation and maintenance</p>
+                        </div>
+                    </div>
+                    <div class="expertise-item">
+                        <div class="expertise-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div>
+                            <h5 style="color: #1a3a5f;">Motor Rewinding</h5>
+                            <p class="mb-0">Professional motor repair and rewinding services</p>
+                        </div>
+                    </div>
+                    <div class="expertise-item">
+                        <div class="expertise-icon">
+                            <i class="fas fa-solar-panel"></i>
+                        </div>
+                        <div>
+                            <h5 style="color: #1a3a5f;">Solar Solutions</h5>
+                            <p class="mb-0">Solar panel installation and renewable energy systems</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Service Areas -->
     <section class="areas-section about-content">
@@ -699,6 +740,24 @@
         </div>
     </section>
 
+    <!-- CTA Section -->
+    <section class="cta-section about-content">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Start Your Project?</h2>
+                <p>Contact us today for a free consultation and quote. Our team is ready to help you with all your electrical and plumbing needs.</p>
+                <div class="cta-buttons">
+                    <a href="tel:+1234567890" class="btn-primary-custom">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                    <a href="mailto:info@kselectricals.com" class="btn-secondary-custom">
+                        <i class="fas fa-envelope"></i> Email Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer Placeholder -->
     <div id="footer"></div>
 
@@ -707,9 +766,33 @@
         crossorigin="anonymous"></script>
 
     <script>
-        // Animation for stats
+        // Counter animation function
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 2000; // 2 seconds
+            const step = Math.ceil(target / (duration / 16)); // 60fps
+            let current = 0;
+            
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = current;
+            }, 16); // ~60fps
+        }
+
+        // Intersection Observer for counter animation
         document.addEventListener('DOMContentLoaded', function () {
-            const statNumbers = document.querySelectorAll('.stat-number');
+            const counters = document.querySelectorAll('.stat-number, .expertise-stat-number');
+            
+            // Initial state
+            counters.forEach(counter => {
+                counter.style.opacity = '0';
+                counter.style.transform = 'translateY(20px)';
+                counter.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
 
             const observerOptions = {
                 threshold: 0.5,
@@ -720,30 +803,58 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const element = entry.target;
+                        
+                        // Animate appearance
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                        
+                        // Start counter animation if not already animated
                         if (!element.classList.contains('animated')) {
                             element.classList.add('animated');
-                            // Add animation class
-                            element.style.opacity = '1';
-                            element.style.transform = 'translateY(0)';
+                            setTimeout(() => {
+                                animateCounter(element);
+                            }, 300); // Delay counter start after element appears
                         }
                     }
                 });
             }, observerOptions);
 
-            statNumbers.forEach(stat => {
-                stat.style.opacity = '0';
-                stat.style.transform = 'translateY(20px)';
-                stat.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                observer.observe(stat);
+            // Observe all counter elements
+            counters.forEach(counter => {
+                observer.observe(counter);
             });
 
-            // Team card animation
-            const teamCards = document.querySelectorAll('.team-card');
-            teamCards.forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                observer.observe(card);
+            // Fade-in animation for other elements
+            const fadeElements = document.querySelectorAll('.mv-card, .area-card, .expertise-item');
+            fadeElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+
+            const fadeObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const element = entry.target;
+                        const delay = parseInt(element.getAttribute('data-delay')) || 0;
+                        
+                        setTimeout(() => {
+                            element.style.opacity = '1';
+                            element.style.transform = 'translateY(0)';
+                        }, delay);
+                        
+                        fadeObserver.unobserve(element); // Only animate once
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            // Apply staggered delays for cards
+            fadeElements.forEach((element, index) => {
+                element.setAttribute('data-delay', (index % 4) * 100);
+                fadeObserver.observe(element);
             });
         });
     </script>
