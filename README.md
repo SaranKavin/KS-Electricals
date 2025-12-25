@@ -4,7 +4,15 @@
 A professional website for KS Electricals company providing electrical services.
 
 ## Live Website
-[![Home Screen](assets/Home_Screen.png)](https://ks-electricals.web.app/)
+<a href="https://ks-electricals.web.app/" target="_blank">
+  <img 
+    width="1899" 
+    height="934" 
+    alt="Home_Screen" 
+    src="https://github.com/user-attachments/assets/99fa11c7-de19-427f-a3b8-a12a067029f1" 
+  />
+</a>
+
 
 
 ## Features
